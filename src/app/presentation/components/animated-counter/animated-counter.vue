@@ -10,13 +10,14 @@ import { NOOP } from 'cubes'
 
 const props = defineProps(MotionProps),
   finalValue = toRef(props, 'finalValue'),
-  wayPoint = ref(0)
+  wayPoint = ref(0),
+  noop = () => 0
 let animationControl: AnimationControls | undefined = undefined
 watch(
   () => finalValue.value,
   to => {
     if (to !== undefined) {
-      //
+      //to instantly stop and update the current animation once the finalValue change
       animationControl?.cancel()
       animationControl = animate(progress => (wayPoint.value = Math.round(progress * to)), {
         duration: props.duration,
@@ -28,5 +29,6 @@ watch(
     immediate: true
   }
 )
-onUnmounted(animationControl ? (animationControl as AnimationControls).cancel : NOOP)
+//once the component remove or navigate to new page (rout) onUnmount will cancel and reset the animation closure
+onUnmounted(animationControl ? (animationControl as AnimationControls).cancel : noop)
 </script>
