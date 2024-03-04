@@ -1,40 +1,32 @@
 <template>
-  <slot name="customCounter" :data="wayPoint">{{ wayPoint }}</slot>
+  <slot :data="wayPoint">{{ wayPoint }}</slot>
 </template>
 
 <script setup lang="ts">
 import { onUnmounted, ref, toRef, watch } from 'vue'
 import { props as MotionProps } from './animated-counter'
-import { Easing, EasingFunction, EasingGenerator, animate } from 'motion'
+import { AnimationControls, AnimationOptions, animate } from 'motion'
+import { NOOP } from 'cubes'
 
-const props = defineProps(MotionProps)
-const finalValue = toRef(props, 'finalValue')
-const duration = toRef(props, 'duration')
-const ease = toRef(props, 'ease')
-const wayPoint = ref(0)
-const timeoutId = ref()
-const whenSetTimeOutComplete = () => {
-  clearTimeout(timeoutId.value)
-}
+const props = defineProps(MotionProps),
+  finalValue = toRef(props, 'finalValue'),
+  wayPoint = ref(0)
+let animationControl: AnimationControls | undefined = undefined
 watch(
   () => finalValue.value,
   to => {
-    console.log('watch', to)
-
-    clearTimeout(timeoutId.value)
-    timeoutId.value = setTimeout(
-      () => {
-        if (to) animate(progress => (wayPoint.value = Math.round(progress * to)), { duration: duration.value, easing: ease.value as EasingGenerator | Easing | Easing[] | EasingFunction | undefined })
-      },
-      1000,
-      whenSetTimeOutComplete()
-    )
+    if (to !== undefined) {
+      //
+      animationControl?.cancel()
+      animationControl = animate(progress => (wayPoint.value = Math.round(progress * to)), {
+        duration: props.duration,
+        easing: props.ease as AnimationOptions['easing']
+      })
+    }
   },
   {
     immediate: true
   }
 )
-onUnmounted(() => {
-  clearTimeout(timeoutId.value)
-})
+onUnmounted(animationControl ? (animationControl as AnimationControls).cancel : NOOP)
 </script>
