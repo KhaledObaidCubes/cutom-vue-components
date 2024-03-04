@@ -12,6 +12,7 @@ const customAsync = () => import('./presentation/pages/new-async/new-async.vue')
 const customRadio = () => import('./presentation/pages/radio-btn/index.vue')
 const radioGroup = () => import('./presentation/pages/radio-group/index.vue')
 const checkBox = () => import('./presentation/pages/checkbox/index.vue')
+const animatedCounter = () => import('./presentation/pages/animated-number/index.vue')
 
 const indexRoute = {
   path: '/',
@@ -101,8 +102,17 @@ const checkboxComp = {
     title: { en: 'checkbox', ar: 'لللل ' }
   }
 }
+const animatedNumber = {
+  path: '/',
+  name: 'animated-counter',
+  component: animatedCounter,
+  meta: {
+    title: { en: 'Animated Counter', ar: 'لللل ' }
+  }
+}
 
 const routes = [
+  animatedNumber,
   checkboxComp,
   radioGroupPage,
   radioBtn,
