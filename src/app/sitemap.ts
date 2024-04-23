@@ -15,6 +15,7 @@ const checkBox = () => import('./presentation/pages/checkbox/index.vue')
 const animatedCounter = () => import('./presentation/pages/animated-number/index.vue')
 const singletonObject = () => import('./presentation/pages/singleton-object/index.vue')
 const refControllerPage = () => import('./presentation/pages/ref-page/index.vue')
+const simpleVmodel = () => import('./presentation/pages/simple-vmodel-page/index.vue')
 
 const indexRoute = {
   path: '/',
@@ -132,8 +133,18 @@ const refPage = {
     icon: 'star'
   }
 }
+const simpleVModel = {
+  path: '/v-model-page',
+  name: 'v-model-page',
+  component: simpleVmodel,
+  meta: {
+    title: { en: 'model page', ar: 'لللل ' },
+    icon: 'star'
+  }
+}
 
 const routes = [
+  simpleVModel,
   refPage,
   singletonPage,
   animatedNumber,
