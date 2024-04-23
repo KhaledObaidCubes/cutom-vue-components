@@ -30,5 +30,9 @@ watch(
   }
 )
 //once the component remove or navigate to new page (rout) onUnmount will cancel and reset the animation closure
-onUnmounted(animationControl ? (animationControl as AnimationControls).cancel : noop)
+
+onUnmounted(animationControl ? (animationControl as AnimationControls).cancel : NOOP)
+
+// onUnmounted(animationControl ? (animationControl as AnimationControls).cancel : () => 0)
+// onUnmounted(animationControl ? (animationControl as AnimationControls).cancel : noop)
 </script>

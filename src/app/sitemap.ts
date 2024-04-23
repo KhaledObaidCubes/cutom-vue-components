@@ -14,6 +14,7 @@ const radioGroup = () => import('./presentation/pages/radio-group/index.vue')
 const checkBox = () => import('./presentation/pages/checkbox/index.vue')
 const animatedCounter = () => import('./presentation/pages/animated-number/index.vue')
 const singletonObject = () => import('./presentation/pages/singleton-object/index.vue')
+const refControllerPage = () => import('./presentation/pages/ref-page/index.vue')
 
 const indexRoute = {
   path: '/',
@@ -122,8 +123,18 @@ const animatedNumber = {
     title: { en: 'Animated Counter', ar: 'لللل ' }
   }
 }
+const refPage = {
+  path: '/ref-page',
+  name: 'ref-page',
+  component: refControllerPage,
+  meta: {
+    title: { en: 'Ref page', ar: 'لللل ' },
+    icon: 'star'
+  }
+}
 
 const routes = [
+  refPage,
   singletonPage,
   animatedNumber,
   checkboxComp,
