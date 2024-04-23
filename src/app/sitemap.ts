@@ -13,25 +13,28 @@ const customRadio = () => import('./presentation/pages/radio-btn/index.vue')
 const radioGroup = () => import('./presentation/pages/radio-group/index.vue')
 const checkBox = () => import('./presentation/pages/checkbox/index.vue')
 const animatedCounter = () => import('./presentation/pages/animated-number/index.vue')
+const singletonObject = () => import('./presentation/pages/singleton-object/index.vue')
 
 const indexRoute = {
   path: '/',
   name: 'index',
   component: Index,
   meta: {
-    title: { en: 'custom button', ar: 'زر مخصص' }
+    title: { en: 'custom button', ar: 'زر مخصص' },
+    icon: 'star'
   }
 }
 const decoratorTest = {
-  path: '/',
+  path: '/decorator',
   name: 'decorator',
   component: decorator,
   meta: {
-    title: { en: 'validatable', ar: 'تحقق' }
+    title: { en: 'validatable', ar: 'تحقق' },
+    icon: 'home'
   }
 }
 const tableRoute = {
-  path: '/',
+  path: '/table',
   name: 'table',
   component: customTable,
   meta: {
@@ -39,7 +42,7 @@ const tableRoute = {
   }
 }
 const asyncBotn = {
-  path: '/',
+  path: '/Animate',
   name: 'Animate',
   component: animate,
   meta: {
@@ -47,7 +50,7 @@ const asyncBotn = {
   }
 }
 const vAsyncEx = {
-  path: '/',
+  path: '/vAsync',
   name: 'vAsync',
   component: vAsync,
   meta: {
@@ -55,7 +58,7 @@ const vAsyncEx = {
   }
 }
 const animateObjects = {
-  path: '/',
+  path: '/async-button',
   name: 'async-button',
   component: asyncButton,
   meta: {
@@ -63,7 +66,7 @@ const animateObjects = {
   }
 }
 const dublcate = {
-  path: '/',
+  path: '/cublicate-button',
   name: 'cublicate-button',
   component: cublicateBtn,
   meta: {
@@ -71,7 +74,7 @@ const dublcate = {
   }
 }
 const newAsync = {
-  path: '/',
+  path: '/custom-async',
   name: 'custom-async',
   component: customAsync,
   meta: {
@@ -79,7 +82,7 @@ const newAsync = {
   }
 }
 const radioBtn = {
-  path: '/',
+  path: '/custom-radio',
   name: 'custom-radio',
   component: customRadio,
   meta: {
@@ -87,7 +90,7 @@ const radioBtn = {
   }
 }
 const radioGroupPage = {
-  path: '/',
+  path: '/custom-group',
   name: 'custom-group',
   component: radioGroup,
   meta: {
@@ -95,15 +98,24 @@ const radioGroupPage = {
   }
 }
 const checkboxComp = {
-  path: '/',
+  path: '/check-box',
   name: 'check-box',
   component: checkBox,
   meta: {
     title: { en: 'checkbox', ar: 'لللل ' }
   }
 }
+const singletonPage = {
+  path: '/singleton',
+  name: 'singleton',
+  component: singletonObject,
+  meta: {
+    title: { en: 'Singleton', ar: 'لللل ' },
+    icon: 'link'
+  }
+}
 const animatedNumber = {
-  path: '/',
+  path: '/animated-counter',
   name: 'animated-counter',
   component: animatedCounter,
   meta: {
@@ -112,6 +124,7 @@ const animatedNumber = {
 }
 
 const routes = [
+  singletonPage,
   animatedNumber,
   checkboxComp,
   radioGroupPage,
