@@ -2,6 +2,8 @@
   <div>
     <div>
       <v-button @click="despatcher()">count+{{ counter }}</v-button>
+      <!-- I had search for why does the following not working -->
+      <v-button @click="$emit('update:model-value', counter)">update-v-model {{ counter }}</v-button>
     </div>
     <div><v-button @click="makeParentTalk()">talk parent</v-button></div>
     <div><v-button @click="sendValueToParentWithEmit('Hello world!')">sendVal to parent</v-button></div>

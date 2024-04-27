@@ -11,5 +11,7 @@ const counter = ref(3)
 const increment = () => {
   counter.value += 1
 }
-defineExpose({ increment })
+
+const duplicated = (val: number): number => val * 2
+defineExpose({ increment, duplicated })
 </script>
