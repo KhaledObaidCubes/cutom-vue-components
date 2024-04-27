@@ -16,6 +16,7 @@ const animatedCounter = () => import('./presentation/pages/animated-number/index
 const singletonObject = () => import('./presentation/pages/singleton-object/index.vue')
 const refControllerPage = () => import('./presentation/pages/ref-page/index.vue')
 const simpleVmodel = () => import('./presentation/pages/simple-vmodel-page/index.vue')
+const PlayGround = () => import('./presentation/pages/play-ground/index.vue')
 
 const indexRoute = {
   path: '/',
@@ -130,7 +131,7 @@ const refPage = {
   component: refControllerPage,
   meta: {
     title: { en: 'Ref page', ar: 'لللل ' },
-    icon: 'star'
+    icon: 'sun'
   }
 }
 const simpleVModel = {
@@ -142,8 +143,18 @@ const simpleVModel = {
     icon: 'star'
   }
 }
+const playGround = {
+  path: '/play-ground',
+  name: 'play-ground',
+  component: PlayGround,
+  meta: {
+    title: { en: 'play ground', ar: 'لللل ' },
+    icon: 'moon'
+  }
+}
 
 const routes = [
+  playGround,
   simpleVModel,
   refPage,
   singletonPage,

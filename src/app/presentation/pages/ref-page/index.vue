@@ -1,19 +1,18 @@
 <template>
   <div>
-    <ref-controller ref="refGate"></ref-controller>
+    <ref-contrlr ref="btnRef" />
+    <v-button @click="incrementParent">inc</v-button>
   </div>
-  <div>
-    <v-button @click="forceToChange()">Change from parent</v-button>
-  </div>
-  <v-button @click="showNumArray()">alertMe</v-button>
 </template>
 
 <script setup lang="ts">
 import { defineAsyncComponent, ref } from 'vue'
-const refGate = ref()
+const btnRef = ref()
 
-const forceToChange = () => refGate?.value.yelled('Hello gentle men!')
-const showNumArray = () => alert(refGate.value.numArr)
+const incrementParent = () => {
+  console.log('///   9090 ///')
 
-const RefController = defineAsyncComponent(() => import('../../components/ref-controller/index.vue'))
+  btnRef.value.increment()
+}
+const RefContrlr = defineAsyncComponent(() => import('../../components/ref-controller/index.vue'))
 </script>

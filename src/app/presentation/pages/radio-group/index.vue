@@ -4,7 +4,7 @@
   </div>
   {{ cheked }}
   <v-button @click="cheked = 2">ffg</v-button>
-  <!-- <v-input v-model="inputModel" :min="0" :max="radioBtnsInfo.length - 1" type="number"></v-input> -->
+  <v-input v-model="inputModel" :min="0" :max="radioBtnsInfo.length - 1" type="number"></v-input>
 </template>
 
 <script setup lang="ts">

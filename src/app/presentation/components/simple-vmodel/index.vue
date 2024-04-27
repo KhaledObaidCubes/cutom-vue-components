@@ -6,12 +6,9 @@
 import { ref } from 'vue'
 
 const msg = ref({ name: 'ON', accent: 'danger' })
-const state = ref(true)
 const emit = defineEmits()
 const togle = () => {
-  console.log(state.value)
-  state.value = !state.value
-  state.value ? (msg.value = { name: 'ON', accent: 'danger' }) : (msg.value = { name: 'OFF', accent: 'primary' })
-  emit('update:model-value', state.value)
+  msg.value.name == 'ON' ? (msg.value = { name: 'OFF', accent: 'primary' }) : (msg.value = { name: 'ON', accent: 'danger' })
+  emit('update:model-value', msg.value.name)
 }
 </script>
