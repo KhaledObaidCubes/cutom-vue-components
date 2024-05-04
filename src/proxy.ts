@@ -5,13 +5,15 @@ import { clientMaps as cubesUiClientMaps } from 'cubes-ui'
 //
 
 import { customTable } from './app/repository/proxy/custom-table.proxy'
+import { dataType } from './app/repository/proxy/data-type.proxy'
 
 const clientMaps = {
   ...cubesUiClientMaps,
   ...cubesAppClientMaps,
   //todo:export your proxies here..
   //myProxy,
-  customTable
+  customTable,
+  dataType
 }
 export { clientMaps }
 export type TClients = typeof clientMaps

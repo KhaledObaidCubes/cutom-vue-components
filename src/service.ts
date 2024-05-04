@@ -14,12 +14,14 @@ const serviceMap = {
   ...cubesServiceMap,
   //todo: add your application service keys/config here
   //MyService: { key: 'MyService', config: {} },
-  CustomTableService: { key: 'CustomTableService', config: {} }
+  CustomTableService: { key: 'CustomTableService', config: {} },
+  DataTypeService: { key: 'DataTypeService', config: {} }
 }
 const repositoryMap = {
   //todo: add your application repository keys/config here
   //MyRepository: { key: 'MyRepository', config: {} },
-  CustomTableRepository: { key: 'CustomTableRepository', config: {} }
+  CustomTableRepository: { key: 'CustomTableRepository', config: {} },
+  DataTypeRepository: { key: 'DataTypeRepository', config: {} }
 }
 type BoilerplateServiceMap = typeof serviceMap
 export { services, serviceMap, repositoryMap }

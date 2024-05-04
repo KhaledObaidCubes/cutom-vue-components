@@ -2,6 +2,7 @@ import { profilePage } from 'cubes-app'
 import { sessionRoutes } from 'cubes-ui'
 
 const Index = () => import('./presentation/pages/index/index.vue')
+const mockApi = () => import('./presentation/pages/mock-server/index.vue')
 const customTable = () => import('./presentation/pages/table/index.vue')
 const decorator = () => import('./presentation/pages/decorator/index.vue')
 const animate = () => import('./presentation/pages/animate/index.vue')
@@ -34,6 +35,14 @@ const decoratorTest = {
   meta: {
     title: { en: 'validatable', ar: 'تحقق' },
     icon: 'home'
+  }
+}
+const mockAPI = {
+  path: '/mock-api',
+  name: 'mock-api',
+  component: mockApi,
+  meta: {
+    title: { en: 'mock api', ar: ' مخصننيص' }
   }
 }
 const tableRoute = {
@@ -154,6 +163,7 @@ const playGround = {
 }
 
 const routes = [
+  mockAPI,
   playGround,
   simpleVModel,
   refPage,

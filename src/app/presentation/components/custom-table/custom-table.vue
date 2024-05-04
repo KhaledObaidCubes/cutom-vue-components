@@ -11,7 +11,7 @@
       </thead>
       <tbody>
         <tr v-for="(row, indx) in pageData" :key="indx">
-          <td v-for="(value, _key, index) in row" :key="index" class="align-middle">{{ value }}</td>
+          <td v-for="(value, _key, index) in row" :key="index" class="align-middle">{{ `${indx}-${value}` }}</td>
         </tr>
       </tbody>
     </table>
@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { IoC } from 'cubes'
-import { ref, watch } from 'vue'
+import { Ref, ref, watch } from 'vue'
 import { serviceMap } from '@/service'
 import type { ICustomTableService } from '../../../service/meta/i-custom-table.service'
 import { IDataModel } from '@/app/domain/meta/i-data-model'
@@ -36,6 +36,7 @@ const isBusy = ref(false)
 const dataService = IoC.DI().resolve<ICustomTableService>(serviceMap.CustomTableService.key) as ICustomTableService
 const offset = ref(0)
 const limit = ref(5)
+const pages = ref(9) as Ref<number> | any
 
 const isLastPage = ref<boolean | undefined>(false)
 const pageData = ref<IDataModel | IDataModel[]>([])
@@ -50,6 +51,7 @@ watch(
     try {
       const result = await dataService.getAsync({ offset: to, limit: limit.value, delay: 500 })
       pageData.value = result.data
+      pages.value = result.kkk
       isLastPage.value = result.pagination?.isLastPage
       isBusy.value = false
     } catch (error) {
