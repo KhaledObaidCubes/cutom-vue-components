@@ -51,7 +51,7 @@ watch(
     try {
       const result = await dataService.getAsync({ offset: to, limit: limit.value, delay: 500 })
       pageData.value = result.data
-      pages.value = result.kkk
+      pages.value = result.pagination
       isLastPage.value = result.pagination?.isLastPage
       isBusy.value = false
     } catch (error) {

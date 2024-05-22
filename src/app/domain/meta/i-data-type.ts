@@ -1,7 +1,6 @@
-import { THashMap } from 'cubes'
+import { THashMap, TIdentifieable, TOptional, TSerializable } from 'cubes'
 
-interface IDataType {
-  id: string
+interface IDataType extends TSerializable<TIdentifieable<{ id: TOptional<string> }, 'id'>> {
   name: THashMap
 }
 export type { IDataType }

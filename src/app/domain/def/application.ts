@@ -1,7 +1,7 @@
 import { Application as App } from 'cubes-ui'
 import { TApplication } from '../meta/i-application'
 
-class Application extends App implements TApplication {
+class Application extends App<TApplication['config'], TApplication['state']> implements TApplication {
   public someExtraProp!: number
 
   public deserialize({ /*someExtraProp = 100,*/ ...rest }: Partial<TApplication> = {}): void {
@@ -9,5 +9,5 @@ class Application extends App implements TApplication {
     //this.someExtraProp = someExtraProp
   }
 }
- 
+
 export { Application }
