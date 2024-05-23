@@ -2,6 +2,7 @@ import { profilePage } from 'cubes-app'
 import { sessionRoutes } from 'cubes-ui'
 
 const Index = () => import('./presentation/pages/index/index.vue')
+const localize = () => import('./presentation/pages/localization/index.vue')
 const mockApi = () => import('./presentation/pages/mock-server/index.vue')
 const customTable = () => import('./presentation/pages/table/index.vue')
 const decorator = () => import('./presentation/pages/decorator/index.vue')
@@ -35,6 +36,14 @@ const decoratorTest = {
   meta: {
     title: { en: 'validatable', ar: 'تحقق' },
     icon: 'home'
+  }
+}
+const localizePage = {
+  path: '/localize-page',
+  name: 'localize-page',
+  component: localize,
+  meta: {
+    title: { en: 'localize', ar: 'تيسيبات' }
   }
 }
 const mockAPI = {
@@ -163,6 +172,7 @@ const playGround = {
 }
 
 const routes = [
+  localizePage,
   mockAPI,
   playGround,
   simpleVModel,
